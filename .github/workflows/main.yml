@@ -1,0 +1,30 @@
+name: CI/CD
+
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare repo
+        uses: actions/checkout@master
+      - name: Init
+        uses: onichandame/python-test-action@master
+      - name: Peewee check
+        run: |
+          pip install peewee
+          
+        # Runs a set of commands using the runners shell
+      - name: unit-tests
+        run: |
+          python -m unittest Amebus/Tests/UnitTests/GuideUnitTest.py
+          python -m unittest Amebus/Tests/UnitTests/GuideServiceUnitTest.py
+      
+         # Runs a set of commands using the runners shell
+      - name: integration-tests
+        run: |
+          python -m unittest Amebus/Tests/IntTests/integration_tests.py
+          python -m unittest Amebus/Tests/IntTests/integration_tests_mock.py
+          
+      - name: e2e-test
+        run: |
+          python -m unittest Amebus/Tests/E2E/testAll.py
