@@ -13,7 +13,7 @@ from Models.Guide import GuideModelDB
 from Models.Schedule import ScheduleModelDB
 from db_settings import database_proxy
 
-import cProfile
+import cProfile, random
 
 
 def profile(func):
@@ -132,4 +132,5 @@ def creation_mock(url):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    for i in range(random.randint(100, 1000))
+        unittest.main()
