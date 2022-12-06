@@ -132,5 +132,5 @@ def creation_mock(url):
 
 
 if __name__ == '__main__':
-    for i in range(random.randint(100, 1000))
+    for i in range(random.randint(100, 1000)):
         unittest.main()
