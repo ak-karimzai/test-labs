@@ -1,4 +1,4 @@
-from Amebus.Entities.Schedule import Schedule
+from Entities.Schedule import Schedule
 
 class ScheduleBuilder:
     def __init__(self, id, excursionId, day, time):

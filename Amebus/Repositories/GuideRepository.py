@@ -1,7 +1,10 @@
-from ..Entities.Guide import Guide
-from ..Logs.log import logger
-from ..Models.Guide import GuideModelDB
-from ..db_settings import database_proxy, database_connect
+import sys
+sys.path.append("..")
+
+from Entities.Guide import Guide
+from Logs.log import logger
+from Models.Guide import GuideModelDB
+from db_settings import database_proxy, database_connect
 
 
 class GuideRepository:

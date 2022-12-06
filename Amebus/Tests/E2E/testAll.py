@@ -2,16 +2,16 @@ import unittest
 
 from peewee import SqliteDatabase
 
-from Amebus.Controllers.ExcursionController import ExcursionController
-from Amebus.Controllers.GuideController import GuideController
-from Amebus.Controllers.ScheduleController import ScheduleController
-from Amebus.Dtos.ExcursionDto import CreateExcursionDto
-from Amebus.Dtos.GuideDto import CreateGuideDto
-from Amebus.Dtos.ScheduleDto import CreateScheduleDto
-from Amebus.Models.Excursion import ExcursionModelDB
-from Amebus.Models.Guide import GuideModelDB
-from Amebus.Models.Schedule import ScheduleModelDB
-from Amebus.db_settings import database_proxy
+from Controllers.ExcursionController import ExcursionController
+from Controllers.GuideController import GuideController
+from Controllers.ScheduleController import ScheduleController
+from Dtos.ExcursionDto import CreateExcursionDto
+from Dtos.GuideDto import CreateGuideDto
+from Dtos.ScheduleDto import CreateScheduleDto
+from Models.Excursion import ExcursionModelDB
+from Models.Guide import GuideModelDB
+from Models.Schedule import ScheduleModelDB
+from db_settings import database_proxy
 
 import cProfile
 
@@ -117,7 +117,7 @@ class workAll(unittest.TestCase):
         print(f'Count errors: 0')
 
     def setUp(self):
-        url = 'testamebus.db'
+        url = 'testdb'
         creation_mock(url)
         self.guideController = GuideController(url)
         self.excursionController = ExcursionController(url)

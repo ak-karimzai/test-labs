@@ -3,16 +3,16 @@ from unittest.mock import Mock
 
 from peewee import SqliteDatabase
 
-from Amebus.Models.Excursion import ExcursionModelDB
-from Amebus.Models.Guide import GuideModelDB
-from Amebus.Models.Schedule import ScheduleModelDB
-from Amebus.Services.ExcursionService import ExcursionService
-from Amebus.Services.GuideService import GuideService
-from Amebus.Services.ScheduleService import ScheduleService
-from Amebus.Tests.TestBuilders.ExcursionBuilder import ExcursionBuilder
-from Amebus.Tests.TestBuilders.GuideBuilder import GuideBuilder
-from Amebus.Tests.TestBuilders.ScheduleBuilder import ScheduleBuilder
-from Amebus.db_settings import database_proxy
+from Models.Excursion import ExcursionModelDB
+from Models.Guide import GuideModelDB
+from Models.Schedule import ScheduleModelDB
+from Services.ExcursionService import ExcursionService
+from Services.GuideService import GuideService
+from Services.ScheduleService import ScheduleService
+from Tests.TestBuilders.ExcursionBuilder import ExcursionBuilder
+from Tests.TestBuilders.GuideBuilder import GuideBuilder
+from Tests.TestBuilders.ScheduleBuilder import ScheduleBuilder
+from db_settings import database_proxy
 
 
 class TestExcursionAndGuideService(unittest.TestCase):
@@ -33,8 +33,8 @@ class TestExcursionAndGuideService(unittest.TestCase):
 
     def setUp(self):
         creation_mock()
-        self.guideService = GuideService('mockamebus.db')
-        self.excursionService = ExcursionService('mockamebus.db')
+        self.guideService = GuideService('mockdb')
+        self.excursionService = ExcursionService('mockdb')
 
 
 class TestUserAndSubjectAndRecordService(unittest.TestCase):
@@ -59,12 +59,12 @@ class TestUserAndSubjectAndRecordService(unittest.TestCase):
 
     def setUp(self):
         creation_mock()
-        self.guideService = GuideService('mockamebus.db')
-        self.excursionService = ExcursionService('mockamebus.db')
-        self.scheduleService = ScheduleService('mockamebus.db')
+        self.guideService = GuideService('mockdb')
+        self.excursionService = ExcursionService('mockdb')
+        self.scheduleService = ScheduleService('mockdb')
 
 def creation_mock():
-    database = SqliteDatabase('mockamebus.db')
+    database = SqliteDatabase('mockdb')
     database_proxy.initialize(database)
     database.drop_tables([ExcursionModelDB, GuideModelDB, ScheduleModelDB])
     database.create_tables([ExcursionModelDB, GuideModelDB, ScheduleModelDB])

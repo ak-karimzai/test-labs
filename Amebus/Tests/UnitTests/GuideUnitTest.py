@@ -2,12 +2,12 @@ import unittest
 
 from peewee import SqliteDatabase, IntegrityError
 
-from Amebus.Models.Excursion import ExcursionModelDB
-from Amebus.Models.Guide import GuideModelDB
-from Amebus.Models.Schedule import ScheduleModelDB
-from Amebus.Repositories.GuideRepository import GuideRepository
-from Amebus.Tests.TestBuilders.GuideBuilder import GuideBuilder
-from Amebus.db_settings import database_proxy
+from Models.Excursion import ExcursionModelDB
+from Models.Guide import GuideModelDB
+from Models.Schedule import ScheduleModelDB
+from Repositories.GuideRepository import GuideRepository
+from Tests.TestBuilders.GuideBuilder import GuideBuilder
+from db_settings import database_proxy
 
 
 class AddGuideTestSuite(unittest.TestCase):
@@ -34,7 +34,7 @@ class AddGuideTestSuite(unittest.TestCase):
 
     def setUp(self):
         creation_mock()
-        self.guideRepository = GuideRepository('mockamebus.db')
+        self.guideRepository = GuideRepository('mockdb')
 
 
 class DeleteGuideTestSuite(unittest.TestCase):
@@ -65,7 +65,7 @@ class DeleteGuideTestSuite(unittest.TestCase):
 
     def setUp(self):
         creation_mock()
-        self.guideRepository = GuideRepository('mockamebus.db')
+        self.guideRepository = GuideRepository('mockdb')
 
 
 class FindGuideTestSuite(unittest.TestCase):
@@ -93,10 +93,10 @@ class FindGuideTestSuite(unittest.TestCase):
 
     def setUp(self):
         creation_mock()
-        self.guideRepository = GuideRepository('mockamebus.db')
+        self.guideRepository = GuideRepository('mockdb')
 
 def creation_mock():
-    database = SqliteDatabase('mockamebus.db')
+    database = SqliteDatabase('mockdb')
     database_proxy.initialize(database)
     database.drop_tables([ExcursionModelDB, GuideModelDB, ScheduleModelDB])
     database.create_tables([ExcursionModelDB, GuideModelDB, ScheduleModelDB])

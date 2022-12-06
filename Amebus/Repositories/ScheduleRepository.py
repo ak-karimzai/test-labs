@@ -1,7 +1,10 @@
-from Amebus.Models.Schedule import ScheduleModelDB
-from ..Entities.Schedule import Schedule
-from ..Logs.log import logger
-from ..db_settings import database_proxy, database_connect
+import sys
+sys.path.append("..")
+
+from Models.Schedule import ScheduleModelDB
+from Entities.Schedule import Schedule
+from Logs.log import logger
+from db_settings import database_proxy, database_connect
 
 
 class ScheduleRepository:

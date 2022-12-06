@@ -1,4 +1,4 @@
-from Amebus.Entities.Excursion import Excursion
+from Entities.Excursion import Excursion
 
 class ExcursionMotherBuilder:
     def init(self, id, name, guideId, price):

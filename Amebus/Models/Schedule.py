@@ -1,6 +1,6 @@
 from peewee import PrimaryKeyField, CharField, ForeignKeyField, DateTimeField, TimeField
-from Amebus.Models.BaseModel import BaseModel
-from Amebus.Models.Excursion import ExcursionModelDB
+from Models.BaseModel import BaseModel
+from Models.Excursion import ExcursionModelDB
 
 
 class ScheduleModelDB(BaseModel):

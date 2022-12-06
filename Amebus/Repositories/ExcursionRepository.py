@@ -1,7 +1,10 @@
-from ..Entities.Excursion import Excursion
-from ..Logs.log import logger
-from ..Models.Excursion import ExcursionModelDB
-from ..db_settings import database_proxy, database_connect
+import sys
+sys.path.append("..")
+
+from Entities.Excursion import Excursion
+from Logs.log import logger
+from Models.Excursion import ExcursionModelDB
+from db_settings import database_proxy, database_connect
 
 
 class ExcursionRepository:

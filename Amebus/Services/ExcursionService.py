@@ -1,6 +1,6 @@
-from Amebus.Dtos.ExcursionDto import ExcursionDto
-from Amebus.Entities.Excursion import Excursion
-from Amebus.Repositories.ExcursionRepository import ExcursionRepository
+from Dtos.ExcursionDto import ExcursionDto
+from Entities.Excursion import Excursion
+from Repositories.ExcursionRepository import ExcursionRepository
 
 
 class ExcursionService:

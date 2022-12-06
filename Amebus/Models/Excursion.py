@@ -1,6 +1,6 @@
 from peewee import PrimaryKeyField, ForeignKeyField, CharField, IntegerField
-from Amebus.Models.BaseModel import BaseModel
-from Amebus.Models.Guide import GuideModelDB
+from Models.BaseModel import BaseModel
+from Models.Guide import GuideModelDB
 
 
 class ExcursionModelDB(BaseModel):

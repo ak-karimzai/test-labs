@@ -1,7 +1,7 @@
-from Amebus.Dtos.GuideDto import GuideDto
-from Amebus.Entities.Guide import Guide
-from Amebus.Logs.log import logger
-from Amebus.Repositories.GuideRepository import GuideRepository
+from Dtos.GuideDto import GuideDto
+from Entities.Guide import Guide
+from Logs.log import logger
+from Repositories.GuideRepository import GuideRepository
 
 
 class GuideService:

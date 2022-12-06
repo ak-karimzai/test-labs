@@ -3,13 +3,13 @@ from unittest.mock import Mock
 
 from peewee import SqliteDatabase
 
-from Amebus.Dtos.GuideDto import GuideDto, CreateGuideDto
-from Amebus.Models.Excursion import ExcursionModelDB
-from Amebus.Models.Guide import GuideModelDB
-from Amebus.Models.Schedule import ScheduleModelDB
-from Amebus.Services.GuideService import GuideService
-from Amebus.Tests.TestBuilders.GuideBuilder import GuideBuilder
-from Amebus.db_settings import database_proxy
+from Dtos.GuideDto import GuideDto, CreateGuideDto
+from Models.Excursion import ExcursionModelDB
+from Models.Guide import GuideModelDB
+from Models.Schedule import ScheduleModelDB
+from Services.GuideService import GuideService
+from Tests.TestBuilders.GuideBuilder import GuideBuilder
+from db_settings import database_proxy
 
 
 class AddGuideTestSuite(unittest.TestCase):

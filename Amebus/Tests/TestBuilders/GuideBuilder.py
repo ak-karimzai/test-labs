@@ -1,4 +1,4 @@
-from Amebus.Entities.Guide import Guide
+from Entities.Guide import Guide
 
 
 class GuideMotherBuilder:

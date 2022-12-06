@@ -1,5 +1,5 @@
 from peewee import PrimaryKeyField, CharField, IntegerField
-from Amebus.Models.BaseModel import BaseModel
+from Models.BaseModel import BaseModel
 
 
 class GuideModelDB(BaseModel):

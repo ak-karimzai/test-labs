@@ -1,5 +1,8 @@
+import sys
+sys.path.append("..")
+
 from peewee import Model
-from ..db_settings import database_proxy
+from db_settings import database_proxy
 
 
 class BaseModel(Model):

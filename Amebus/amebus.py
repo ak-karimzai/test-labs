@@ -1,17 +1,16 @@
 from peewee import SqliteDatabase
 import logging.config
 
-from Amebus.Dtos.GuideDto import CreateGuideDto
-from Amebus.Logs.log_config import log_config
-from Amebus.Controllers.ExcursionController import ExcursionController
-from Amebus.Controllers.GuideController import GuideController
-from Amebus.Controllers.ScheduleController import ScheduleController
-from Amebus.Dtos.ScheduleDto import ScheduleDto
-from Amebus.Models.Excursion import ExcursionModelDB
-from Amebus.Models.Guide import GuideModelDB
-from Amebus.Models.Schedule import ScheduleModelDB
-from Amebus.db_settings import database_proxy
-from Amebus.Logs.log import logger
+from Dtos.GuideDto import CreateGuideDto
+from Logs.log_config import log_config
+from Controllers.ExcursionController import ExcursionController
+from Controllers.GuideController import GuideController
+from Controllers.ScheduleController import ScheduleController
+from Dtos.ScheduleDto import ScheduleDto
+from Models.Excursion import ExcursionModelDB
+from Models.Guide import GuideModelDB
+from Models.Schedule import ScheduleModelDB
+from db_settings import database_proxy
 
 class ConsoleApp:
     def __init__(self, url='amebud.db'):

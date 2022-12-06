@@ -1,8 +1,8 @@
-from Amebus.Dtos.ScheduleDto import ScheduleDto
-from Amebus.Entities.Schedule import Schedule
-from Amebus.Repositories.ExcursionRepository import ExcursionRepository
-from Amebus.Repositories.ScheduleRepository import ScheduleRepository
-from Amebus.Logs.log import logger
+from Dtos.ScheduleDto import ScheduleDto
+from Entities.Schedule import Schedule
+from Repositories.ExcursionRepository import ExcursionRepository
+from Repositories.ScheduleRepository import ScheduleRepository
+from Logs.log import logger
 
 class ScheduleService:
     def __init__(self, url):

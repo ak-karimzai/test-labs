@@ -1,5 +1,5 @@
-from Amebus.Services.ExcursionService import ExcursionService
-from Amebus.Logs.log import logger
+from Services.ExcursionService import ExcursionService
+from Logs.log import logger
 
 class ExcursionController:
     def __init__(self, url):
