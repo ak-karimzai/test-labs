@@ -1,15 +1,9 @@
 import unittest
 from unittest.mock import Mock
-
-from peewee import SqliteDatabase
-
 from Dtos.GuideDto import GuideDto, CreateGuideDto
-from Models.Excursion import ExcursionModelDB
-from Models.Guide import GuideModelDB
-from Models.Schedule import ScheduleModelDB
 from Services.GuideService import GuideService
 from Tests.TestBuilders.GuideBuilder import GuideBuilder
-from db_settings import database_proxy
+
 
 
 class AddGuideTestSuite(unittest.TestCase):
