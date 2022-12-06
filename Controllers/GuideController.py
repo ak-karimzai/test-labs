@@ -1,5 +1,5 @@
-from Amebus.Services.GuideService import GuideService
-from Amebus.Logs.log import logger
+from Services.GuideService import GuideService
+from Logs.log import logger
 
 class GuideController:
     def __init__(self, url):

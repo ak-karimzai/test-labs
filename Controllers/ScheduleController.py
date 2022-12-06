@@ -1,5 +1,5 @@
-from Amebus.Services.ScheduleService import ScheduleService
-from Amebus.Logs.log import logger
+from Services.ScheduleService import ScheduleService
+from Logs.log import logger
 
 class ScheduleController:
     def __init__(self, url):
