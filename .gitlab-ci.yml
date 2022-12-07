@@ -6,14 +6,14 @@ stages:
 
 unit tests:
   tags:
-    - windows
+    - test
   script:
     - dotnet test -l trx "E:\TestPO\UnitTests\bin\Debug\net6.0-windows10.0.22621.0\UnitTests.dll"
   stage: unit
 
 integration tests:
   tags:
-    - windows
+    - test
   script:
     - dotnet test -l trx "E:\TestPO\IntegrationTests\bin\Debug\net6.0-windows10.0.22621.0\IntegrationTests.dll"
   stage: integration
