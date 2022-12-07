@@ -1,40 +1,28 @@
+image: ubuntu-latest
+
 stages:
-  - build
-  - test
+  - unit
+  - integration
+  - e2e
 
-build-image:
-  stage: build
-  variables:
-    DOCKER_DRIVER: overlay2
-    DOCKER_HOST: tcp://dockerservice:2375/
-    DOCKER_TLS_CERTDIR: ""
-  image: docker:20.10.14
-  services:
-    - name: docker:20.10.14-dind
-      alias: dockerservice
-  before_script:
-    - sleep 30
-    - docker info
+dependices:
   script:
-  - echo ${CI_BUILD_TOKEN} | docker login -u gitlab-ci-token --password-stdin ${CI_REGISTRY}
-  - docker build --pull --no-cache -t ${CI_REGISTRY_IMAGE}:1.0.0 - << EOF
+    - pip install peewee
+    
 
-    FROM alpine:3.13.1
+unit tests:
+  script:
+    - python -m unittest Tests/UnitTests/GuideUnitTest.py
+    - python -m unittest Tests/UnitTests/GuideServiceUnitTest.py
+  stage: unit
 
-    RUN apk update
-    RUN apk upgrade
-    RUN apk add --no-cache git ca-certificates curl python3 jq apache2-utils nmap-ncat netcat-openbsd wget
+integration tests:
+  script:
+    - python -m unittest Tests/IntTests/integration_tests.py
+    - python -m unittest Tests/IntTests/integration_tests_mock.py
+  stage: integration
 
-    ENTRYPOINT []
-
-    EOF
-  - docker push ${CI_REGISTRY_IMAGE}:1.0.0
-
-test:
-  stage: test
-  image: ${CI_REGISTRY_IMAGE}:1.0.0
-  variables:
-    GIT_STRATEGY: none
-  script: 
-    - sleep 10
-  parallel: 50
+e2e tests:
+  script:
+    - python -m unittest Tests/E2E/testAll.py
+  stage: e2e
