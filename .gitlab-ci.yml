@@ -1,19 +1,30 @@
 image: python:latest
 
-stages:
-  - unit
-  - integration
+unit-test:
+    stage: test
+    tags:
+        - docker
+    script:
+        - echo "Testing"
+        - python3 test_gaussian_sum_formula.py
 
-unit tests:
-  tags:
-    - test
-  script:
-    - dotnet test -l trx "E:\TestPO\UnitTests\bin\Debug\net6.0-windows10.0.22621.0\UnitTests.dll"
-  stage: unit
+doku:
+    stage: deploy
+    tags:
+        - docker
+    script:
+        - echo "Create Doku"
+        - pydoc3 -w gaussian_sum_formula
+    artifacts:
+        paths:
+            - "*.html"
 
-integration tests:
-  tags:
-    - test
-  script:
-    - dotnet test -l trx "E:\TestPO\IntegrationTests\bin\Debug\net6.0-windows10.0.22621.0\IntegrationTests.dll"
-  stage: integration
+
+lint-test:
+    stage: test
+    tags:
+        - docker
+    script:
+        - echo "Linting"
+        - pip3 install pylint
+        - pylint gaussian_sum_formula.py
