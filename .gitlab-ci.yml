@@ -1,56 +1,32 @@
-image: python:latest
+stages:
+  - build_and_test
+  - deploy
 
-# Change pip's cache directory to be inside the project directory since we can
-# only cache local items.
 variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  test_file_remote: /tmp/test_job_remote.txt
+  test_file: /tmp/test_job.txt
+  git_file: /tmp/test/test.txt 
 
-# Pip's cache doesn't store the python packages
-# https://pip.pypa.io/en/stable/topics/caching/
-#
-# If you want to also cache the installed packages, you have to install
-# them in a virtualenv and cache it as well.
-cache:
-  paths:
-    - .cache/pip
-    - venv/
-
-before_script:
-  - python --version  # For debugging
-  - pip install virtualenv
-  - virtualenv venv
-  - source venv/bin/activate
-
-test:
+test_job_ci:
+  stage:  build_and_test
+  tags:
+    - test
+    - api
   script:
-    - python setup.py test
-    - pip install tox flake8  # you can also use tox
-    - tox -e py36,flake8
+    - echo "Project dir - "$CI_PROJECT_DIR > $test_file
+    - echo "Project name - "$CI_PROJECT_NAME >> $test_file
+    - test $git_file 
+    - cat $git_file >> $test_file
+    - ssh gitlab-runner@127.0.0.1 cat $test_file > $test_file_remote
 
-run:
+test_job_cd:
+  stage:  deploy
+  tags:
+    - api
   script:
-    - python setup.py bdist_wheel
-    # an alternative approach is to install and run:
-    - pip install dist/*
-    # run the command here
+    - if [ -e $test_file_remote ]; then cat $test_file_remote; else echo "Where my file?!" > $test_file_remote; fi
+    - mkdir build
+    - cp $test_file_remote build/
   artifacts:
-    paths:
-      - dist/*.whl
-
-pages:
-  script:
-    - pip install sphinx sphinx-rtd-theme
-    - cd doc
-    - make html
-    - mv build/html/ ../public/
-  artifacts:
-    paths:
-      - public
-  rules:
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
-deploy:
-  stage: deploy
-  script: echo "Define your deployment script!"
-  environment: production
-
+      paths:
+        - build/
