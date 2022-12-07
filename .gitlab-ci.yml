@@ -5,6 +5,7 @@ unit-test:
     tags:
         - docker
     script:
+        - echo "Testing"
         - python3 test_gaussian_sum_formula.py
 
 doku:
@@ -12,6 +13,11 @@ doku:
     tags:
         - docker
     script:
+        - echo "Create Doku"
+        - pydoc3 -w gaussian_sum_formula
+    artifacts:
+        paths:
+            - "*.html"
 
 
 lint-test:
@@ -19,3 +25,6 @@ lint-test:
     tags:
         - docker
     script:
+        - echo "Linting"
+        - pip3 install pylint
+        - pylint gaussian_sum_formula.py
