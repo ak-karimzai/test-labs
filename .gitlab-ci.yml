@@ -12,11 +12,11 @@ unit tests:
 
 integration tests:
   script:
-    - python -m unittest Tests/IntTests/integration_tests.py
-    - python -m unittest Tests/IntTests/integration_tests_mock.py
+    # - python -m unittest Tests/IntTests/integration_tests.py
+    # - python -m unittest Tests/IntTests/integration_tests_mock.py
   stage: integration
 
 e2e tests:
   script:
-    - python -m unittest Tests/E2E/testAll.py
+    # - python -m unittest Tests/E2E/testAll.py
   stage: e2e
