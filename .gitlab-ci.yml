@@ -1,30 +1,7 @@
-image: python:latest
+before_script:
+  - docker info
 
-unit-test:
-    stage: test
-    tags:
-        - docker
-    script:
-        - echo "Testing"
-        - python3 test_gaussian_sum_formula.py
-
-doku:
-    stage: deploy
-    tags:
-        - docker
-    script:
-        - echo "Create Doku"
-        - pydoc3 -w gaussian_sum_formula
-    artifacts:
-        paths:
-            - "*.html"
-
-
-lint-test:
-    stage: test
-    tags:
-        - docker
-    script:
-        - echo "Linting"
-        - pip3 install pylint
-        - pylint gaussian_sum_formula.py
+build_image:
+  script:
+    - docker build -t my-docker-image .
+    - docker run my-docker-image /script/to/run/tests
