@@ -5,5 +5,5 @@ stages:
 
 unit tests:
   script:
-    - echo "fuck"
+    - python3 --version
   stage: unit
