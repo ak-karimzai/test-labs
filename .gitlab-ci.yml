@@ -1,6 +1,7 @@
 image: ubuntu-latest
 
 stages:
+  - dependices
   - unit
   - integration
   - e2e
@@ -8,6 +9,7 @@ stages:
 dependices:
   script:
     - pip install peewee
+  stage: dependices
     
 
 unit tests:
