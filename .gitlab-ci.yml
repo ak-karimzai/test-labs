@@ -1,32 +1,19 @@
+image: mcr.microsoft.com/dotnet/sdk:latest
+
 stages:
-  - build_and_test
-  - deploy
+  - unit
+  - integration
 
-variables:
-  test_file_remote: /tmp/test_job_remote.txt
-  test_file: /tmp/test_job.txt
-  git_file: /tmp/test/test.txt 
-
-test_job_ci:
-  stage:  build_and_test
+unit tests:
   tags:
-    - test
-    - api
+    - windows
   script:
-    - echo "Project dir - "$CI_PROJECT_DIR > $test_file
-    - echo "Project name - "$CI_PROJECT_NAME >> $test_file
-    - test $git_file 
-    - cat $git_file >> $test_file
-    - ssh gitlab-runner@127.0.0.1 cat $test_file > $test_file_remote
+    - dotnet test -l trx "E:\TestPO\UnitTests\bin\Debug\net6.0-windows10.0.22621.0\UnitTests.dll"
+  stage: unit
 
-test_job_cd:
-  stage:  deploy
+integration tests:
   tags:
-    - api
+    - windows
   script:
-    - if [ -e $test_file_remote ]; then cat $test_file_remote; else echo "Where my file?!" > $test_file_remote; fi
-    - mkdir build
-    - cp $test_file_remote build/
-  artifacts:
-      paths:
-        - build/
+    - dotnet test -l trx "E:\TestPO\IntegrationTests\bin\Debug\net6.0-windows10.0.22621.0\IntegrationTests.dll"
+  stage: integration
