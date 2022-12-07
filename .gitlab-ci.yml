@@ -2,21 +2,8 @@ image: python:3.10.8-alpine3.17
 
 stages:
   - unit
-  # - integration
-  # - e2e
 
 unit tests:
   script:
     - echo "fuck"
   stage: unit
-
-integration tests:
-  script:
-    # - python -m unittest Tests/IntTests/integration_tests.py
-    # - python -m unittest Tests/IntTests/integration_tests_mock.py
-  stage: integration
-
-e2e tests:
-  script:
-    # - python -m unittest Tests/E2E/testAll.py
-  stage: e2e
