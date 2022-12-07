@@ -1,7 +1,21 @@
-before_script:
-  - docker info
+image: python:latest
 
-build_image:
-  script:
-    - docker build -t my-docker-image .
-    - docker run my-docker-image /script/to/run/tests
+unit-test:
+    stage: test
+    tags:
+        - docker
+    script:
+        - python3 test_gaussian_sum_formula.py
+
+doku:
+    stage: deploy
+    tags:
+        - docker
+    script:
+
+
+lint-test:
+    stage: test
+    tags:
+        - docker
+    script:
