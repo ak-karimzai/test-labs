@@ -2,23 +2,11 @@ image: python:3.10.8-alpine3.17
 
 stages:
   - unit
-  - integration
-  - e2e
 
 unit tests:
   script:
     - pip3 install peewee
-    - python3 -m unittest Tests/UnitTests/GuideUnitTest.py
-    - python3 -m unittest Tests/UnitTests/GuideServiceUnitTest.py
+    - python3 -m coverage run -m unittest Tests/UnitTests/GuideServiceUnitTest.py
+    - python3 -m coverage run -m unittest Tests/UnitTests/GuideUnitTest.py
+    - python3 -m coverage report
   stage: unit
-
-integration tests:
-  script:
-    - python3 -m unittest Tests/IntTests/integration_tests.py
-    - python3 -m unittest Tests/IntTests/integration_tests_mock.py
-  stage: integration
-
-e2e tests:
-  script:
-    - python3 -m unittest Tests/E2E/testAll.py
-  stage: e2e
