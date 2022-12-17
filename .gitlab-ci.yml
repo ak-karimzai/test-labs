@@ -2,6 +2,8 @@ image: python:3.10.8-alpine3.17
 
 stages:
   - unit
+  - integration
+  - e2e
 
 unit tests:
   script:
@@ -11,3 +13,18 @@ unit tests:
     - python3 -m coverage report
     - python3 -m coverage html
   stage: unit
+
+integration tests:
+  script:
+    - python3 -m coverage run -m unittest Tests/IntTests/integration_tests.py
+    - python3 -m coverage run -m unittest Tests/IntTests/integration_tests_mock.py
+    - python3 -m coverage report
+    - python3 -m coverage html
+  stage: integration
+
+e2e tests:
+  script:
+    - python3 -m coverage run -m unittest Tests/E2E/testAll.py
+    - python3 -m coverage report
+    - python3 -m coverage html
+  stage: e2e

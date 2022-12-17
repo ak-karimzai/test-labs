@@ -12,24 +12,25 @@ from db_settings import database_proxy
 
 class AddGuideTestSuite(unittest.TestCase):
     def test_create_guide_positive(self):
-        # arrange
-        guide = GuideBuilder(id=1, firstName='test name').build()
+        #arrange
+        guide = GuideBuilder(id=1, firstName='Andrey').build()
         new_guide = self.guideRepository.create(guide)
 
-        # assert
+        #assert
         self.assertEqual(str(guide.firstName), str(new_guide.firstName))
         self.assertEqual(guide.firstName, new_guide.firstName)
 
     def test_create_guide_negative(self):
-        # arrange
-        guide = GuideBuilder(id=1, firstName='test name').build()
+        #arrange
+        guide = GuideBuilder(id=1, firstName='Andrey').build()
 
-        # act
+        #act
         self.guideRepository.create(guide)
         new_guide = self.guideRepository.create(guide)
 
-        # assert
+        #assert
         self.assertIsNone(new_guide)
+
 
     def setUp(self):
         creation_mock()
@@ -39,7 +40,7 @@ class AddGuideTestSuite(unittest.TestCase):
 class DeleteGuideTestSuite(unittest.TestCase):
     def test_delete_guide_positive(self):
         # arrange
-        guide = GuideBuilder(id=1, firstName='test name').build()
+        guide = GuideBuilder(id=1, firstName='Andrey').build()
 
         # act
         new_guide = self.guideRepository.create(guide)
@@ -70,11 +71,7 @@ class DeleteGuideTestSuite(unittest.TestCase):
 class FindGuideTestSuite(unittest.TestCase):
     def test_find_guide_positive(self):
         # arrange
-        guide = GuideBuilder(id=1, firstName='test name').\
-            withLastName("test family").\
-            withPatronymic("test patronymic").\
-            withQualification("test qualification").\
-            build()
+        guide = GuideBuilder(id=1, firstName='Andrey').build()
 
         # act
         new_guide = self.guideRepository.create(guide)
@@ -98,62 +95,12 @@ class FindGuideTestSuite(unittest.TestCase):
         creation_mock()
         self.guideRepository = GuideRepository('mockdb')
 
-
-class UpdateGuideTestSuite(unittest.TestCase):
-    def test_update_guide_positive(self):
-        # arrange
-        guide = GuideBuilder(id=1, firstName='test name').build()
-
-        # act
-        new_guide = self.guideRepository.create(guide)
-        new_guide.firstName = "Ahmad"
-        guideFind = self.guideRepository.update(new_guide)
-
-        # assert
-        self.assertEqual(guideFind.id, new_guide.id)
-        self.assertEqual(str(guideFind.firstName), str(new_guide.firstName))
-
-    def test_update_guide_negative(self):
-        # arrange
-        guide = GuideBuilder(id=1, firstName='test name').build()
-
-        # act
-        guide = self.guideRepository.create(guide)
-        guide.id = -1
-        updatedGuide = self.guideRepository.update(guide)
-
-        # assert
-        self.assertIsNone(updatedGuide)
-
-    def setUp(self):
-        creation_mock()
-        self.guideRepository = GuideRepository('mockdb')
-
-class GetAllGuideTestSuite(unittest.TestCase):
-    def test_getall_guide_positive(self):
-        # arrange
-        guide = GuideBuilder(id=1, firstName='test name').build()
-
-        # act
-        new_guide = self.guideRepository.create(guide)
-        allGuids = self.guideRepository.findAll()
-
-        # assert
-        self.assertEqual(len(allGuids), 1)
-        self.assertEqual(allGuids[0].id, new_guide.id)
-        self.assertEqual(str(allGuids[0].firstName), str(new_guide.firstName))
-
-    def setUp(self):
-        creation_mock()
-        self.guideRepository = GuideRepository('mockdb')
-
 def creation_mock():
     database = SqliteDatabase('mockdb')
     database_proxy.initialize(database)
     database.drop_tables([ExcursionModelDB, GuideModelDB, ScheduleModelDB])
     database.create_tables([ExcursionModelDB, GuideModelDB, ScheduleModelDB])
 
-
 if __name__ == '__main__':
-    # creation_mock()
+    #creation_mock()
     unittest.main()
