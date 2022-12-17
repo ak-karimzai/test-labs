@@ -9,4 +9,5 @@ unit tests:
     - python3 -m coverage run -m unittest Tests/UnitTests/GuideServiceUnitTest.py
     - python3 -m coverage run -m unittest Tests/UnitTests/GuideUnitTest.py
     - python3 -m coverage report
+    - python3 -m coverage html
   stage: unit
