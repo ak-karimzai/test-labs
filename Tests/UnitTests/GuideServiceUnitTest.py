@@ -4,13 +4,11 @@ from Dtos.GuideDto import GuideDto, CreateGuideDto
 from Services.GuideService import GuideService
 from Tests.TestBuilders.GuideBuilder import GuideBuilder
 
-
-
 class AddGuideTestSuite(unittest.TestCase):
     def test_create_guide_positive(self):
         #arrange
         guide = CreateGuideDto(
-            firstName = "Andrey",
+            firstName = "test name",
             lastName = "test",
             patronymic = "test",
             qualification = "test",
@@ -27,7 +25,7 @@ class AddGuideTestSuite(unittest.TestCase):
     def test_create_guide_negative(self):
         #arrange
         guide = CreateGuideDto(
-                firstName="Andrey",
+                firstName="test name",
                 lastName="test",
                 patronymic="test",
                 qualification="test",
@@ -41,13 +39,12 @@ class AddGuideTestSuite(unittest.TestCase):
 
         # assert
         self.assertIsNone(new_guide)
-
     def stub(self):
         return None
 
     def setUp(self):
         self.guideService = GuideService('tmp')
-        self.mockCreate = Mock(return_value=GuideBuilder(id=1, firstName='Andrey').build())
+        self.mockCreate = Mock(return_value=GuideBuilder(id=1, firstName='test name').build())
         self.guideService.guideRepository.create = self.mockCreate
 
 
@@ -56,7 +53,7 @@ class FindGuideTestSuite(unittest.TestCase):
         # arrange
         guide = GuideDto(
             id = 1,
-            firstName="Andrey",
+            firstName="test name",
             lastName="test",
             patronymic="test",
             qualification="test",
@@ -75,7 +72,7 @@ class FindGuideTestSuite(unittest.TestCase):
         # arrange
         guide = GuideDto(
             id=1,
-            firstName="Andrey",
+            firstName="test name",
             lastName="test",
             patronymic="test",
             qualification="test",
@@ -96,7 +93,7 @@ class FindGuideTestSuite(unittest.TestCase):
     def setUp(self):
         self.guideService = GuideService('tmp')
         self.mockFind = Mock(
-            return_value=GuideBuilder(id=1, firstName='Andrey').build())
+            return_value=GuideBuilder(id=1, firstName='test name').build())
         self.guideService.guideRepository.findById = self.mockFind
 
 
@@ -105,7 +102,7 @@ class UpdateGuideTestSuite(unittest.TestCase):
         # arrange
         guide = GuideDto(
             id=1,
-            firstName="Andrey",
+            firstName="test name",
             lastName="test",
             patronymic="test",
             qualification="test",
@@ -125,7 +122,7 @@ class UpdateGuideTestSuite(unittest.TestCase):
         # arrange
         guide = GuideDto(
             id=1,
-            firstName="Andrey",
+            firstName="test name",
             lastName="test",
             patronymic="test",
             qualification="test",
@@ -146,7 +143,7 @@ class UpdateGuideTestSuite(unittest.TestCase):
     def setUp(self):
         self.guideService = GuideService('tmp')
         self.mockUpdate = Mock(
-            return_value=GuideBuilder(id=1, firstName='Andrey').build())
+            return_value=GuideBuilder(id=1, firstName='test name').build())
         self.guideService.guideRepository.update = self.mockUpdate
 
 
@@ -155,7 +152,7 @@ class DeleteGuideTestSuite(unittest.TestCase):
         # arrange
         guide = GuideDto(
             id=1,
-            firstName="Andrey",
+            firstName="test name",
             lastName="test",
             patronymic="test",
             qualification="test",
@@ -174,7 +171,7 @@ class DeleteGuideTestSuite(unittest.TestCase):
         # arrange
         guide = GuideDto(
             id=1,
-            firstName="Andrey",
+            firstName="test name",
             lastName="test",
             patronymic="test",
             qualification="test",
@@ -189,14 +186,13 @@ class DeleteGuideTestSuite(unittest.TestCase):
         # assert
         self.assertIsNone(delete_guide)
 
-
     def stub(self):
         return 0
 
     def setUp(self):
         self.guideService = GuideService('tmp')
         self.mockDelete = Mock(
-            return_value=GuideBuilder(id=1, firstName='Andrey').build())
+            return_value=GuideBuilder(id=1, firstName='test name').build())
         self.guideService.guideRepository.delete = self.mockDelete
 
 if __name__ == '__main__':
