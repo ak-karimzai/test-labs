@@ -25,6 +25,7 @@ integration tests:
 
 e2e tests:
   script:
+    - pip3 install coverage
     - python3 -m coverage run -m unittest Tests/E2E/testAll.py
     - python3 -m coverage report
     - python3 -m coverage html
