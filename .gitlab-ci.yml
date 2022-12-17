@@ -8,6 +8,7 @@ stages:
 unit tests:
   script:
     - pip3 install peewee
+    - pip3 install coverage
     - python3 -m coverage run -m unittest Tests/UnitTests/GuideServiceUnitTest.py
     - python3 -m coverage run -m unittest Tests/UnitTests/GuideUnitTest.py
     - python3 -m coverage report
