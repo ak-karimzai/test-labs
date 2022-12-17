@@ -1,6 +1,0 @@
-[init]
-	defaultBranch = none
-[fetch]
-	recurseSubmodules = false
-[http "https://git.iu7.bmstu.ru"]
-	sslCAInfo = /home/khalid/Desktop/temp/test_labs/builds/4_QxdDkY/0/ka19iu10/test_labs.tmp/CI_SERVER_TLS_CA_FILE

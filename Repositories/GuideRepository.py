@@ -78,7 +78,7 @@ class GuideRepository:
 
     def update(self, updateGuide):
         try:
-            guide = self.GuideModelDB.get(GuideModelDB.id == id)
+            guide = self.GuideModelDB.get(GuideModelDB.id == updateGuide.id)
             guide.firstName = updateGuide.firstName
             guide.lastName = updateGuide.lastName
             guide.patronymic = updateGuide.patronymic
@@ -96,7 +96,7 @@ class GuideRepository:
                 biography=guide.biography,
                 experience=guide.experience
             )
-        except:
+        except Exception as e:
             logger.warning("Guide wasn't updated")
             return None
 
