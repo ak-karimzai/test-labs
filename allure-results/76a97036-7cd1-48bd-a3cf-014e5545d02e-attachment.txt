@@ -1,0 +1,1 @@
+[32mINFO    [0m main:GuideService.py:14 Guide was received

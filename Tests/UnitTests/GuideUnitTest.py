@@ -1,6 +1,6 @@
-import unittest
+import unittest, pytest, sys
 
-from peewee import SqliteDatabase, IntegrityError
+from peewee import SqliteDatabase
 
 from Models.Excursion import ExcursionModelDB
 from Models.Guide import GuideModelDB

@@ -1,0 +1,1 @@
+[33mWARNING [0m main:GuideService.py:66 Guide wasn't created
