@@ -10,4 +10,5 @@ unit tests:
     - pip3 install allure-pytest
     - python3 -m pytest Tests/UnitTests/GuideServiceUnitTest.py --alluredir=allure-results
     - python3 -m pytest Tests/UnitTests/GuideUnitTest.py --alluredir=allure-results
+    - python3 -m allure serve allure-results
   stage: unit
