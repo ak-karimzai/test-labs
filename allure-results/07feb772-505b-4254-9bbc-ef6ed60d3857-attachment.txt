@@ -1,0 +1,3 @@
+[32mINFO    [0m main:GuideRepository.py:64 Guide was created
+[32mINFO    [0m main:GuideRepository.py:106 Guide was deleted
+[33mWARNING [0m main:GuideRepository.py:32 Guide wasn't received

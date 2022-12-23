@@ -1,0 +1,2 @@
+[32mINFO    [0m main:GuideRepository.py:64 Guide was created
+[33mWARNING [0m main:GuideRepository.py:100 Guide wasn't updated

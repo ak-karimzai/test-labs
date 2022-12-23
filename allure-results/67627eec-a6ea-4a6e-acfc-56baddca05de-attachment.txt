@@ -1,0 +1,1 @@
+[33mWARNING [0m main:GuideService.py:25 Guide wasn't received

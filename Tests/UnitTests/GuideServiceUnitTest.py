@@ -1,4 +1,4 @@
-import unittest
+import unittest, pytest, allure
 from unittest.mock import Mock
 from Dtos.GuideDto import GuideDto, CreateGuideDto
 from Services.GuideService import GuideService

@@ -1,5 +1,4 @@
-import unittest
-
+import unittest, pytest, allure
 from peewee import SqliteDatabase
 
 from Controllers.ExcursionController import ExcursionController

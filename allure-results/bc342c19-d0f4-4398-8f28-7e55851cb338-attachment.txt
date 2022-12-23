@@ -1,0 +1,1 @@
+[33mWARNING [0m main:GuideRepository.py:32 Guide wasn't received

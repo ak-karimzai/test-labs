@@ -1,0 +1,2 @@
+[32mINFO    [0m main:GuideRepository.py:64 Guide was created
+[32mINFO    [0m main:GuideRepository.py:21 Guide was received

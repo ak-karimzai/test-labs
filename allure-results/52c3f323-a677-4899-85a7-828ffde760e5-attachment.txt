@@ -1,0 +1,2 @@
+[33mWARNING [0m main:GuideRepository.py:109 Guide wasn't deleted
+[33mWARNING [0m main:GuideRepository.py:32 Guide wasn't received

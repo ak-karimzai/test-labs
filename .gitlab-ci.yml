@@ -8,28 +8,25 @@ stages:
 unit tests:
   script:
     - pip3 install peewee
-    - pip3 install coverage
-    - python3 -m coverage run -m unittest Tests/UnitTests/GuideServiceUnitTest.py
-    - python3 -m coverage run -m unittest Tests/UnitTests/GuideUnitTest.py
-    - python3 -m coverage report
-    - python3 -m coverage html
+    - pip3 install pytest
+    - pip3 install allure-pytest
+    - python3 -m pytest Tests/UnitTests/GuideServiceUnitTest.py
+    - python3 -m pytest Tests/UnitTests/GuideUnitTest.py
   stage: unit
 
 integration tests:
   script:
     - pip3 install peewee
-    - pip3 install coverage
-    - python3 -m coverage run -m unittest Tests/IntTests/integration_tests.py
-    - python3 -m coverage run -m unittest Tests/IntTests/integration_tests_mock.py
-    - python3 -m coverage report
-    - python3 -m coverage html
+    - pip3 install pytest
+    - pip3 install allure-pytest
+    - python3 -m pytest Tests/IntTests/integration_tests.py
+    - python3 -m pytest Tests/IntTests/integration_tests_mock.py
   stage: integration
 
 e2e tests:
   script:
     - pip3 install peewee
-    - pip3 install coverage
-    - python3 -m coverage run -m unittest Tests/E2E/testAll.py
-    - python3 -m coverage report
-    - python3 -m coverage html
+    - pip3 install pytest
+    - pip3 install allure-pytest
+    - python3 -m pytest Tests/E2E/testAll.py
   stage: e2e

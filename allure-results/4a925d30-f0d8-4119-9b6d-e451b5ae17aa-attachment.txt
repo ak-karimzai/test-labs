@@ -1,0 +1,5 @@
+[32mINFO    [0m main:GuideRepository.py:64 Guide was created
+[32mINFO    [0m main:GuideService.py:55 Guide was created
+[32mINFO    [0m main:ExcursionRepository.py:57 Excursion was created
+[32mINFO    [0m main:ScheduleRepository.py:54 Schedule was created
+[32mINFO    [0m main:ScheduleService.py:51 Schedule was created

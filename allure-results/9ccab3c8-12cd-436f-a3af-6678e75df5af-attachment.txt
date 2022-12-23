@@ -1,0 +1,1 @@
+[33mWARNING [0m main:GuideService.py:92 Guide wasn't updated

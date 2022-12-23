@@ -1,0 +1,1 @@
+[33mWARNING [0m main:GuideService.py:101 Guide wasn't deleted
