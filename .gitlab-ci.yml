@@ -5,9 +5,7 @@ stages:
 
 unit tests:
   script:
-    - pip3 install peewee
-    - pip3 install pytest
-    - pip3 install allure-pytest
+    - pip3 -r requirements.txt
     - python3 -m pytest Tests/UnitTests/GuideServiceUnitTest.py --alluredir=allure-results
     - python3 -m pytest Tests/UnitTests/GuideUnitTest.py --alluredir=allure-results
     - python3 -m allure serve allure-results
