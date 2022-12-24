@@ -7,26 +7,20 @@ stages:
 
 unit tests:
   script:
-    - pip3 install peewee
-    - pip3 install pytest
-    - pip3 install allure-pytest
+    - pip3 install -r requirements.txt
     - python3 -m pytest Tests/UnitTests/GuideServiceUnitTest.py
     - python3 -m pytest Tests/UnitTests/GuideUnitTest.py
   stage: unit
 
 integration tests:
   script:
-    - pip3 install peewee
-    - pip3 install pytest
-    - pip3 install allure-pytest
+    - pip3 install -r requirements.txt
     - python3 -m pytest Tests/IntTests/integration_tests.py
     - python3 -m pytest Tests/IntTests/integration_tests_mock.py
   stage: integration
 
 e2e tests:
   script:
-    - pip3 install peewee
-    - pip3 install pytest
-    - pip3 install allure-pytest
+    - pip3 install -r requirements.txt
     - python3 -m pytest Tests/E2E/testAll.py
   stage: e2e
